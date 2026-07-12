@@ -1,3 +1,4 @@
+from datetime import datetime
 def welcome():
     print("=" * 60)
     print("🤖        Welcome to Rule-Based Chatbot")
@@ -18,6 +19,8 @@ def welcome():
     • what is ai
     • who created python
     • what can you do
+    • date
+    • time  
     • bye
     """)
 
@@ -54,9 +57,20 @@ def chatbot():
             print("\nChatbot: Goodbye! 👋 Have a wonderful day.")
             break
 
+        elif user_input == "date":
+            today = datetime.now().strftime("%d-%m-%Y")
+            print("Chatbot: Today's date is", today)
+            continue
+
+        elif user_input == "time":
+            current_time = datetime.now().strftime("%H:%M:%S")
+            print("Chatbot: Current time is", current_time)
+            continue
+
         response = get_response(user_input)
 
         print("Chatbot:", response)
 
 
 chatbot()
+
